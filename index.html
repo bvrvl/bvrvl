@@ -13,8 +13,8 @@
       --bg-color: #fbf7f0f1;
       --text-color: #1f1f1d;
       --text-muted-color: #6e6e6a;
-      --link-color: #307296c3;
-      --link-hover-color: #073e58;
+      --link-color: #3d7695c3;
+      --link-hover-color: #597582;
       --border-color: #c1bbb0;
       --sidebar-bg-color: transparent;
       --dark-bg-color: #212020;
@@ -65,7 +65,7 @@
     ul, ol { margin-bottom: 1em; padding-left: 40px; }
     li { margin-bottom: 0.3em; }
     hr { border: 0; height: 1px; background-color: var(--border-color); margin: 2.5em 0; transition: background-color 0.15s ease; }
-    .sidebar, .site-tagline, .post-meta, .site-footer-main, .theme-switcher button, .back-to-top-link { font-family: var(--font-body); }
+    .sidebar, .site-tagline, .post-meta, .site-footer-main, .theme-switcher button, .back-to-top-link, .embeddable-buttondown-form label, .embeddable-buttondown-form input, .embeddable-buttondown-form input[type=submit] { font-family: var(--font-body); }
     .sidebar {
       grid-column: 1 / 2;
       font-size: 0.9em;
@@ -111,16 +111,24 @@
     .site-header { margin-bottom: 2.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5em; transition: border-color 0.15s ease; }
     .site-header h1 { margin-bottom: 0.1em; }
     .site-tagline { font-size: 1em; color: var(--text-muted-color); margin-top: 0.2em; margin-bottom: 0; transition: color 0.15s ease; }
+    #post-display-area { min-height: 100px; }
     #post-display-area article { margin-bottom: 2.5em; padding-bottom: 1em; position: relative; }
     #post-display-area article:last-of-type { margin-bottom: 0; padding-bottom: 0; }
     .post-meta { font-size: 0.8em; color: var(--text-muted-color); margin-bottom: 0.2em; transition: color 0.15s ease; }
     #post-display-area h2 { font-size: 1.8em; margin-bottom: 0.8em; }
     #post-display-area h3 { font-size: 1.4em; margin-top: 1.8em; margin-bottom: 0.6em; }
-    /* #post-display-area p {} l8r, uses body for now*/
-    .back-to-top-link { display: block; margin-top: 2.5em; text-align: center; font-size: 0.9em; color: var(--text-muted-color); text-decoration: none; }
+    /*#post-display-area p {} l8r; uses body styeles for now*/
+    .back-to-top-link { display: block; margin-top: 2.5em; text-align: left; font-size: 0.9em; color: var(--text-muted-color); text-decoration: none; }
     .back-to-top-link:hover { color: var(--link-hover-color); text-decoration: underline; }
     .back-to-top-link::before { content: '\2191 '; }
-    .site-footer-main { margin-top: 3em; padding-top: 1.5em; border-top: 1px solid var(--border-color); font-size: 0.8em; color: var(--text-muted-color); text-align: center; transition: border-color 0.15s ease, color 0.15s ease; }
+    #buttondown-embed-wrapper { margin-top: 3em; padding-top: 1.5em; border-top: 1px solid var(--border-color); text-align: center; transition: border-color 0.15s ease;}
+    .embeddable-buttondown-form label { display: block; margin-bottom: 0.6em; color: var(--text-muted-color); font-size: 0.95em; }
+    .embeddable-buttondown-form input[type="email"] { font-size: 0.95em; padding: 8px 10px; border: 1px solid var(--border-color); background-color: var(--bg-color); color: var(--text-color); border-radius: 3px; margin-right: 6px; min-width: 220px; vertical-align: middle; transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+    .embeddable-buttondown-form input[type="submit"] { font-size: 0.95em; padding: 8px 15px; border: 1px solid var(--link-color); background-color: var(--link-color); color: var(--bg-color); cursor: pointer; border-radius: 3px; vertical-align: middle; -webkit-appearance: none; appearance: none; transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+    .embeddable-buttondown-form input[type="submit"]:hover { background-color: var(--link-hover-color); border-color: var(--link-hover-color); }
+    .embeddable-buttondown-form p { font-size: 0.8em; color: var(--text-muted-color); margin-top: 0.7em; margin-bottom: 0; }
+    .embeddable-buttondown-form p a { color: var(--text-muted-color); } /* Style the 'powered by' link */
+    .site-footer-main { margin-top: 1.5em; padding-top: 1.5em; border-top: 1px solid var(--border-color); font-size: 0.8em; color: var(--text-muted-color); text-align: center; transition: border-color 0.15s ease, color 0.15s ease; }
     .theme-switcher { position: fixed; top: var(--body-margin); right: var(--body-margin); font-size: 0.8em; z-index: 10; }
     .theme-switcher button { background: none; border: none; color: var(--link-color); cursor: pointer; padding: 2px 4px; text-decoration: underline; font-size: inherit; transition: color 0.15s ease; }
     .theme-switcher button:hover { color: var(--link-hover-color); }
@@ -131,6 +139,8 @@
       .sidebar.sidebar-hidden { opacity: 1; pointer-events: auto; }
       .main-content { grid-row: 2; height: auto; overflow-y: visible; overscroll-behavior-y: auto; padding-bottom: 10px; scrollbar-width: auto; -ms-overflow-style: auto; }
       .main-content::-webkit-scrollbar { display: block; }
+      #buttondown-embed-wrapper { margin-top: 2em; padding-top: 1em; }
+      .embeddable-buttondown-form input[type="email"], .embeddable-buttondown-form input[type="submit"] { display: block; width: 90%; margin: 0 auto 10px auto; }
       .theme-switcher { position: absolute; top: 5px; right: 5px; }
       .back-to-top-link { margin-bottom: 1em; }
     }
@@ -148,10 +158,16 @@
     body.dark-mode .site-tagline { color: var(--dark-text-muted-color); }
     body.dark-mode .post-meta { color: var(--dark-text-muted-color); }
     body.dark-mode #post-display-area h2, body.dark-mode #post-display-area h3 { color: inherit; }
-    body.dark-mode .post-title a { color: inherit; } /* This rule isn't used directly but kept for potential future use */
+    body.dark-mode .post-title a { color: inherit; }
     body.dark-mode .post-title a:hover { color: var(--dark-link-hover-color); }
     body.dark-mode .back-to-top-link { color: var(--dark-text-muted-color); }
     body.dark-mode .back-to-top-link:hover { color: var(--dark-link-hover-color); }
+    body.dark-mode #buttondown-embed-wrapper { border-top-color: var(--dark-border-color);}
+    body.dark-mode .embeddable-buttondown-form label { color: var(--dark-text-muted-color); }
+    body.dark-mode .embeddable-buttondown-form input[type="email"] { border-color: var(--dark-border-color); background-color: var(--dark-bg-color); color: var(--dark-text-color); }
+    body.dark-mode .embeddable-buttondown-form input[type="submit"] { border-color: var(--dark-link-color); background-color: var(--dark-link-color); color: var(--dark-bg-color); }
+    body.dark-mode .embeddable-buttondown-form input[type="submit"]:hover { background-color: var(--dark-link-hover-color); border-color: var(--dark-link-hover-color); }
+    body.dark-mode .embeddable-buttondown-form p a { color: var(--dark-text-muted-color); }
     body.dark-mode .site-footer-main { border-color: var(--dark-border-color); color: var(--dark-text-muted-color); }
     body.dark-mode .theme-switcher button { color: var(--dark-link-color); }
     body.dark-mode .theme-switcher button:hover { color: var(--dark-link-hover-color); }
@@ -164,11 +180,9 @@
   <aside class="sidebar">
     <h2>Posts</h2>
     <ul id="sidebar-post-list">
-      <li><a href="#" data-post-url="posts/post-1.html" aria-current="page">Coming Soon</a></li>
-      <li><a href="#" data-post-url="posts/post-2.html"></a></li>
-      <li><a href="#" data-post-url="posts/post-3.html"></a></li>
-      <li><a href="#" data-post-url="posts/post-4.html"></a></li>
-      <li><a href="#" data-post-url="posts/post-5.html"></a></li>
+      <li><a href="#" data-post-url="posts/post-1.html" aria-current="page">Article Title One</a></li>
+     <!-- <li><a href="#" data-post-url="posts/post-2.html"></a></li>
+      <li><a href="#" data-post-url="posts/post-3.html"></a></li> -->
     </ul>
   </aside>
   <main class="main-content" id="main-content-area">
@@ -179,9 +193,18 @@
       <div id="post-display-area">
           <p>Loading...</p>
       </div>
-      <footer class="site-footer-main">
-        © <script>document.write(new Date().getFullYear())</script> bvrvl. All content licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a> license.
-    </footer>
+      <div id="buttondown-embed-wrapper">
+        <form action="https://buttondown.email/api/emails/embed-subscribe/bvrvl" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/bvrvl', 'popupwindow')" class="embeddable-buttondown-form">
+           <label for="bd-email">Subscribe to be pinged when I make a post:</label>
+           <input type="email" name="email" id="bd-email" placeholder="you@example.com" required>
+           <input type="hidden" value="1" name="embed">
+           <input type="submit" value="Subscribe" />
+           <p><a href="https://buttondown.com/refer/bvrvl" target="_blank">Powered by Buttondown.</a></p>
+        </form>
+      </div>
+       <footer class="site-footer-main">
+           © <script>document.write(new Date().getFullYear())</script> bvrvl. All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+       </footer>
   </main>
   <script>
     const body = document.body;
@@ -246,6 +269,8 @@
       if (!postDisplayArea || !url) return;
       if (mainContent) { mainContent.scrollTop = 0; }
       if (sidebar && window.innerWidth > 650) { sidebar.classList.remove('sidebar-hidden'); accumulatedScrollUp = 0; }
+      const existingBackToTop = mainContent.querySelector('.back-to-top-link');
+      if (existingBackToTop) { existingBackToTop.remove(); }
       postDisplayArea.innerHTML = '<p>Loading...</p>';
       setActiveLink(linkElement);
       try {
@@ -266,9 +291,7 @@
         backToTop.className = 'back-to-top-link';
         backToTop.textContent = 'Back to Top';
         backToTop.addEventListener('click', scrollToTop);
-        const existingBackToTop = mainContent.querySelector('.back-to-top-link');
-        if (existingBackToTop) { existingBackToTop.remove(); }
-        mainContent.appendChild(backToTop);
+        postDisplayArea.appendChild(backToTop);
       } catch (error) {
         console.error("Error loading post:", error);
         postDisplayArea.innerHTML = `<p>Error loading content from <code>${url}</code>. Check path and filename.</p>`;
