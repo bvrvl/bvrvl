@@ -108,19 +108,48 @@
     .sidebar a:hover { text-decoration: underline; color: var(--link-hover-color); }
     .sidebar a[aria-current="page"] { font-weight: 600; color: var(--text-color); text-decoration: none; }
     .sidebar a[aria-current="page"]:hover { color: var(--text-color); text-decoration: none; }
-    .site-header { margin-bottom: 2.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5em; transition: border-color 0.15s ease; }
-    .site-header h1 { margin-bottom: 0.1em; }
+    .site-header {
+      margin-bottom: 2.5em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5em;
+      transition: border-color 0.15s ease;
+      /* New styles for the header layout */
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .site-branding h1 { margin-bottom: 0.1em; }
     .site-tagline { font-size: 1em; color: var(--text-muted-color); margin-top: 0.2em; margin-bottom: 0; transition: color 0.15s ease; }
+    .site-author {
+      text-align: right;
+      padding-top: 0px;
+      font-size: 0.9em;
+    }
+    .author-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.1em;
+      color: var(--text-color);
+      margin-top: 1.5em;
+      margin-bottom:0em;
+    }
+    .author-email {
+      color: var(--text-muted-color);
+      text-decoration: none;
+      font-size: 0.95em;
+    }
+    .author-email:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
     #post-display-area { min-height: 100px; }
     #post-display-area article { margin-bottom: 2.5em; padding-bottom: 1em; position: relative; }
     #post-display-area article:last-of-type { margin-bottom: 0; padding-bottom: 0; }
     .post-meta { font-size: 0.8em; color: var(--text-muted-color); margin-bottom: 0.2em; transition: color 0.15s ease; }
     #post-display-area h2 { font-size: 1.8em; margin-bottom: 0.8em; }
     #post-display-area h3 { font-size: 1.4em; margin-top: 1.8em; margin-bottom: 0.6em; }
-    /*#post-display-area p {} l8r; uses body styeles for now*/
-    /* Ensure images in posts fit within container */
     #post-display-area img {
-      /* Constrain both width and height to viewport/container for better display */
       max-width: 100%;
       max-height: 80vh;
       width: auto;
@@ -137,7 +166,7 @@
     .embeddable-buttondown-form input[type="submit"] { font-size: 0.95em; padding: 8px 15px; border: 1px solid var(--link-color); background-color: var(--link-color); color: var(--bg-color); cursor: pointer; border-radius: 3px; vertical-align: middle; -webkit-appearance: none; appearance: none; transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
     .embeddable-buttondown-form input[type="submit"]:hover { background-color: var(--link-hover-color); border-color: var(--link-hover-color); }
     .embeddable-buttondown-form p { font-size: 0.8em; color: var(--text-muted-color); margin-top: 0.7em; margin-bottom: 0; }
-    .embeddable-buttondown-form p a { color: var(--text-muted-color); } /* Style the 'powered by' link */
+    .embeddable-buttondown-form p a { color: var(--text-muted-color); }
     .site-footer-main { margin-top: 1.5em; padding-top: 1.5em; border-top: 1px solid var(--border-color); font-size: 0.8em; color: var(--text-muted-color); text-align: center; transition: border-color 0.15s ease, color 0.15s ease; }
     .theme-switcher { position: fixed; top: var(--body-margin); right: var(--body-margin); font-size: 0.8em; z-index: 10; }
     .theme-switcher button { background: none; border: none; color: var(--link-color); cursor: pointer; padding: 2px 4px; text-decoration: underline; font-size: inherit; transition: color 0.15s ease; }
@@ -154,6 +183,17 @@
       .theme-switcher { position: absolute; top: 5px; right: 5px; }
       .back-to-top-link { margin-bottom: 1em; }
     }
+    /* Responsive adjustment for the new header */
+    @media (max-width: 480px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .site-author {
+        text-align: left;
+        padding-top: 1em;
+      }
+    }
     body.dark-mode { color: var(--dark-text-color); background-color: var(--dark-bg-color); }
     body.dark-mode a { color: var(--dark-link-color); }
     body.dark-mode a:hover { color: var(--dark-link-hover-color); }
@@ -166,6 +206,10 @@
     body.dark-mode .sidebar a[aria-current="page"]:hover { color: var(--dark-text-color); }
     body.dark-mode .site-header { border-color: var(--dark-border-color); }
     body.dark-mode .site-tagline { color: var(--dark-text-muted-color); }
+    /* Dark mode for author styles */
+    body.dark-mode .author-name { color: var(--dark-text-color); }
+    body.dark-mode .author-email { color: var(--dark-text-muted-color); }
+    body.dark-mode .author-email:hover { color: var(--dark-link-hover-color); }
     body.dark-mode .post-meta { color: var(--dark-text-muted-color); }
     body.dark-mode #post-display-area h2, body.dark-mode #post-display-area h3 { color: inherit; }
     body.dark-mode .post-title a { color: inherit; }
@@ -192,16 +236,19 @@
     <ul id="sidebar-post-list">
       <li><a href="#" data-post-url="./posts/pink-blanket-of-white-hearts.html" aria-current="page">Pink Blanket of White Hearts</a></li>
       <li><a href="#" data-post-url="./posts/poorly-knit-sweater.html">poorly knit sweater</a></li>
-
       <li><a href="#" data-post-url="./posts/so-in-mania-c.html">so in mania C</a></li>
-      <!-- <li><a href="#" data-post-url="posts/post-2.html"></a></li>
-      <li><a href="#" data-post-url="posts/post-3.html"></a></li> -->
     </ul>
   </aside>
   <main class="main-content" id="main-content-area">
       <header class="site-header">
-        <h1>bvrvl</h1>
-        <p class="site-tagline">blog</p>
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a href="mailto:saurabh@bvrvl.com" class="author-email">saurabh@bvrvl.com</a>
+        </div>
       </header>
       <div id="post-display-area">
           <p>Loading...</p>
@@ -215,7 +262,7 @@
         </form>
       </div>
        <footer class="site-footer-main">
-           © <script>document.write(new Date().getFullYear())</script> bvrvl. All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+           © <script>document.write(new Date().getFullYear())</script> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
        </footer>
   </main>
   <script>
