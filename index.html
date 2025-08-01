@@ -46,7 +46,8 @@
         </div>
         <div class="site-author">
           <p class="author-name">Saurabh Baral</p>
-          <a href="mailto:saurabh@bvrvl.com" class="author-email">saurabh@bvrvl.com</a>
+          <!-- The email link will be generated here by the script -->
+          <a id="author-email-link" class="author-email"></a>
         </div>
       </header>
       
@@ -116,6 +117,42 @@
       if (themeToggleButton) { themeToggleButton.textContent = theme === 'dark' ? 'Light Theme' : 'Dark Theme'; }
     };
 
+    function populateList(posts, listElementId) {
+        const listElement = document.getElementById(listElementId);
+        if (!listElement) return;
+
+        listElement.innerHTML = '';
+        posts.forEach(post => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '#';
+            link.setAttribute('data-post-url', post.url);
+            link.textContent = post.title;
+            listItem.appendChild(link);
+            listElement.appendChild(listItem);
+        });
+    }
+
+    function renderProtectedEmails() {
+        const user = 'saurabh';
+        const domain = 'bvrvl.com';
+        const fullEmail = user + '@' + domain;
+
+        // Build the header email link
+        const headerEmailLink = document.getElementById('author-email-link');
+          if (headerEmailLink && !headerEmailLink.href) {
+              headerEmailLink.href = 'mailto:' + fullEmail;
+              headerEmailLink.textContent = fullEmail;
+            }
+
+        // Build the email link inside the post content (about page)
+        const postEmailLink = document.getElementById('about-email-link');
+          if (postEmailLink && !postEmailLink.href) { // Check if it's not already built
+          postEmailLink.href = 'mailto:' + fullEmail;
+          postEmailLink.textContent = fullEmail;
+          }
+    }
+
     const loadPost = async (url, linkElement) => {
       if (!postDisplayArea || !url) return;
       if (mainContent) { mainContent.scrollTop = 0; }
@@ -142,27 +179,14 @@
             if (mainContent) { mainContent.scrollTo({ top: 0, behavior: 'smooth' }); }
         });
         postDisplayArea.appendChild(backToTop);
+        
+        renderProtectedEmails();
+        
       } catch (error) {
         console.error("Error loading post:", error);
         postDisplayArea.innerHTML = `<p>Error loading content from <code>${url}</code>. Check path and filename.</p>`;
       }
     };
-
-    function populateList(posts, listElementId) {
-        const listElement = document.getElementById(listElementId);
-        if (!listElement) return;
-
-        listElement.innerHTML = '';
-        posts.forEach(post => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = '#';
-            link.setAttribute('data-post-url', post.url);
-            link.textContent = post.title;
-            listItem.appendChild(link);
-            listElement.appendChild(listItem);
-        });
-    }
 
 
     // --- Event Listeners and Initialization ---
@@ -194,11 +218,14 @@
         // For the copyright footer
         document.getElementById("current-year").textContent = new Date().getFullYear();
 
+        // Render header email
+        renderProtectedEmails();
+
         // Dynamic post lists
         populateList(writingPosts, 'sidebar-writing-list');
         populateList(poetryPosts, 'sidebar-poetry-list');
-
-        // Load the new home page by default
+        
+        // Load the home page by default
         const homeUrl = "posts/home.html";
         const homeLink = sidebar.querySelector(`a[data-post-url="${homeUrl}"]`);
         loadPost(homeUrl, homeLink);
