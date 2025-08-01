@@ -225,3 +225,34 @@ body.dark-mode .theme-switcher button:hover { color: var(--dark-link-hover-color
     white-space: pre-wrap;              
                
   }
+
+/* --- Styling for the Log Page --- */
+
+.log-entry {
+  margin-bottom: 2.5em; 
+}
+
+.log-entry hr {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+/* --- Custom Image Sizes for the Log Page --- */
+
+.log-image-wrapper {
+  max-width: 500px; 
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.log-image-wrapper img {
+  /* This makes the image itself fill the container perfectly. */
+  display: block;  /* Removes extra space below the image. */
+  width: 100%; 
+  height: auto;    /* Maintains the original aspect ratio. */
+}

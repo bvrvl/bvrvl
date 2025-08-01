@@ -46,7 +46,6 @@
         </div>
         <div class="site-author">
           <p class="author-name">Saurabh Baral</p>
-          <!-- The email link will be generated here by the script -->
           <a id="author-email-link" class="author-email"></a>
         </div>
       </header>
@@ -191,15 +190,17 @@
 
     // --- Event Listeners and Initialization ---
 
-    // Single event listener for the whole sidebar
-    sidebar.addEventListener('click', function(event) {
-        const targetLink = event.target.closest('a[data-post-url]');
-        if (targetLink) {
-            event.preventDefault();
-            const postUrl = targetLink.getAttribute('data-post-url');
-            loadPost(postUrl, targetLink);
-        }
-    });
+    document.body.addEventListener('click', function(event) {
+    // Check if the clicked element (or its parent) is a link with special attribute
+    const targetLink = event.target.closest('a[data-post-url]');
+
+    // Load if it is
+    if (targetLink) {
+        event.preventDefault(); // Stop the link from trying to navigate away
+        const postUrl = targetLink.getAttribute('data-post-url');
+        loadPost(postUrl, targetLink);
+    }
+});
 
     if (themeToggleButton) {
       themeToggleButton.addEventListener("click", () => {
