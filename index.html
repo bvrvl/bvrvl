@@ -22,17 +22,15 @@
   
   <aside class="sidebar">
     <ul id="sidebar-page-list" style="list-style: none; padding-left: 0; margin-bottom: 2em;">
-        <li><a href="#" data-post-url="posts/home.html" aria-current="page">Hello</a></li>
-        <li><a href="#" data-post-url="posts/about.html">About</a></li>
-        <li><a href="#" data-post-url="posts/log.html">Log</a></li>
+        <li><a href="#posts/home.html" data-post-url="posts/home.html">Hello</a></li>
+        <li><a href="#posts/about.html" data-post-url="posts/about.html">About</a></li>
+        <li><a href="#posts/log.html" data-post-url="posts/log.html">Log</a></li>
     </ul>
 
-    <!-- Section for General Writing -->
     <h2>Blog</h2>
     <ul id="sidebar-writing-list" style="list-style: none; padding-left: 0;">
     </ul>
 
-    <!-- Section for Poetry -->
     <h2 style="margin-top: 2em;">Poetry</h2>
     <ul id="sidebar-poetry-list" style="list-style: none; padding-left: 0;">
     </ul>
@@ -69,16 +67,13 @@
   </main>
 
   <script>
-
-    // Essays and general blog posts
     const writingPosts = [
         {
             title: "Smriti: The Entire History of You",
-            url: "posts/Smriti.html"
+            url: "posts/smriti.html"
         }
     ];
 
-    // Poems
     const poetryPosts = [
         {
             title: "Pink Blanket of White Hearts",
@@ -102,14 +97,11 @@
         }
     ];
 
-    // --- References to HTML Elements ---
     const body = document.body;
     const themeToggleButton = document.getElementById("theme-toggle-button");
     const postDisplayArea = document.getElementById("post-display-area");
     const sidebar = document.querySelector(".sidebar");
     const mainContent = document.getElementById("main-content-area");
-
-    // --- Core Functions ---
 
     const applyTheme = (theme) => {
       body.classList.toggle("dark-mode", theme === "dark");
@@ -124,7 +116,7 @@
         posts.forEach(post => {
             const listItem = document.createElement('li');
             const link = document.createElement('a');
-            link.href = '#';
+            link.href = `#${post.url}`;
             link.setAttribute('data-post-url', post.url);
             link.textContent = post.title;
             listItem.appendChild(link);
@@ -137,22 +129,20 @@
         const domain = 'bvrvl.com';
         const fullEmail = user + '@' + domain;
 
-        // Build the header email link
         const headerEmailLink = document.getElementById('author-email-link');
           if (headerEmailLink && !headerEmailLink.href) {
               headerEmailLink.href = 'mailto:' + fullEmail;
               headerEmailLink.textContent = fullEmail;
             }
 
-        // Build the email link inside the post content (about page)
         const postEmailLink = document.getElementById('about-email-link');
-          if (postEmailLink && !postEmailLink.href) { // Check if it's not already built
+          if (postEmailLink && !postEmailLink.href) { 
           postEmailLink.href = 'mailto:' + fullEmail;
           postEmailLink.textContent = fullEmail;
           }
     }
 
-    const loadPost = async (url, linkElement) => {
+    const loadPost = async (url) => {
       if (!postDisplayArea || !url) return;
       if (mainContent) { mainContent.scrollTop = 0; }
 
@@ -160,7 +150,9 @@
       
       const allLinks = document.querySelectorAll('.sidebar a[data-post-url]');
       allLinks.forEach(link => { link.removeAttribute('aria-current'); });
-      if (linkElement) { linkElement.setAttribute('aria-current', 'page'); }
+
+      const currentLink = document.querySelector(`.sidebar a[data-post-url="${url}"]`);
+      if (currentLink) { currentLink.setAttribute('aria-current', 'page'); }
 
       try {
         const response = await fetch(url);
@@ -187,20 +179,10 @@
       }
     };
 
-
-    // --- Event Listeners and Initialization ---
-
-    document.body.addEventListener('click', function(event) {
-    // Check if the clicked element (or its parent) is a link with special attribute
-    const targetLink = event.target.closest('a[data-post-url]');
-
-    // Load if it is
-    if (targetLink) {
-        event.preventDefault(); // Stop the link from trying to navigate away
-        const postUrl = targetLink.getAttribute('data-post-url');
-        loadPost(postUrl, targetLink);
-    }
-});
+    const handleRouteChange = () => {
+        const postUrl = window.location.hash.substring(1) || "posts/home.html";
+        loadPost(postUrl);
+    };
 
     if (themeToggleButton) {
       themeToggleButton.addEventListener("click", () => {
@@ -211,25 +193,19 @@
     }
 
     function initialize() {
-        // Set the theme
         const storedTheme = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         applyTheme(storedTheme || (prefersDark ? "dark" : "light"));
         
-        // For the copyright footer
         document.getElementById("current-year").textContent = new Date().getFullYear();
 
-        // Render header email
         renderProtectedEmails();
 
-        // Dynamic post lists
         populateList(writingPosts, 'sidebar-writing-list');
         populateList(poetryPosts, 'sidebar-poetry-list');
         
-        // Load the home page by default
-        const homeUrl = "posts/home.html";
-        const homeLink = sidebar.querySelector(`a[data-post-url="${homeUrl}"]`);
-        loadPost(homeUrl, homeLink);
+        window.addEventListener('hashchange', handleRouteChange);
+        handleRouteChange();
     }
 
     initialize();
