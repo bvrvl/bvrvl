@@ -12,7 +12,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-
   <title>bvrvl</title>
 </head>
 <body>
@@ -21,22 +20,28 @@
   </div>
   
   <aside class="sidebar">
-    <ul id="sidebar-page-list" style="list-style: none; padding-left: 0; margin-bottom: 2em;">
-        <li><a href="#posts/home.html" data-post-url="posts/home.html">Hello</a></li>
-        <li><a href="#posts/about.html" data-post-url="posts/about.html">About</a></li>
-        <li><a href="#posts/log.html" data-post-url="posts/log.html">Log</a></li>
+    <ul style="list-style: none; padding-left: 0; margin-bottom: 2em;">
+        <li><a href="/index.html" aria-current="page">Hello</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/log.html">Log</a></li>
     </ul>
 
     <h2>Blog</h2>
-    <ul id="sidebar-writing-list" style="list-style: none; padding-left: 0;">
+    <ul style="list-style: none; padding-left: 0;">
+        <li><a href="/posts/smriti.html">Smriti: The Entire History of You</a></li>
     </ul>
 
     <h2 style="margin-top: 2em;">Poetry</h2>
-    <ul id="sidebar-poetry-list" style="list-style: none; padding-left: 0;">
+    <ul style="list-style: none; padding-left: 0;">
+        <li><a href="/posts/pink-blanket-of-white-hearts.html">Pink Blanket of White Hearts</a></li>
+        <li><a href="/posts/so-in-mania-c.html">so in mania C</a></li>
+        <li><a href="/posts/poorly-knit-sweater.html">poorly knit sweater</a></li>
+        <li><a href="/posts/your-grace-is-all-i-know.html">Your grace is all I know</a></li>
+        <li><a href="/posts/angst.html">Angst</a></li>
     </ul>
   </aside>
 
-  <main class="main-content" id="main-content-area">
+  <main class="main-content">
       <header class="site-header">
         <div class="site-branding">
           <h1>bvrvl</h1>
@@ -49,7 +54,17 @@
       </header>
       
       <div id="post-display-area">
-          <p>Loading...</p>
+        <article>
+            <div class="post-content" style="margin-top: -1.5em;">
+                <h1>Hello</h1>
+                <p><i>Page Last Updated: Aug 1, 2025</i></p>
+                <p style="margin-top: 2em;">Welcome to my website. This is the garden(?) of my digital being.</p>
+                <p> I will later add a Studio Ghibli scene somewhere on this page but I haven't decided on which one yet.</p>
+                <p> You can head to the <a href="/about.html">About</a> page to know more about me.<br>Or you can view my timeline in the <a href="/log.html">log section</a>.<br>Or you can read one of my poems from the sidebar.</p>
+                <p> I plan on being active here but I may be inconsistent like I often am.</p>
+                <p><i>Saurabh Baral</i></p>
+            </div>
+        </article>
       </div>
       
       <div id="buttondown-embed-wrapper">
@@ -67,148 +82,7 @@
   </main>
 
   <script>
-    const writingPosts = [
-        {
-            title: "Smriti: The Entire History of You",
-            url: "posts/Smriti.html"
-        }
-    ];
-
-    const poetryPosts = [
-        {
-            title: "Pink Blanket of White Hearts",
-            url: "posts/pink-blanket-of-white-hearts.html"
-        },
-        {
-            title: "so in mania C",
-            url: "posts/so-in-mania-c.html"
-        },
-        {
-            title: "poorly knit sweater",
-            url: "posts/poorly-knit-sweater.html"
-        },
-        {
-            title: "Your grace is all I know",
-            url: "posts/your-grace-is-all-i-know.html"
-        },
-        {
-            title: "Angst",
-            url: "posts/angst.html"
-        }
-    ];
-
-    const body = document.body;
-    const themeToggleButton = document.getElementById("theme-toggle-button");
-    const postDisplayArea = document.getElementById("post-display-area");
-    const sidebar = document.querySelector(".sidebar");
-    const mainContent = document.getElementById("main-content-area");
-
-    const applyTheme = (theme) => {
-      body.classList.toggle("dark-mode", theme === "dark");
-      if (themeToggleButton) { themeToggleButton.textContent = theme === 'dark' ? 'Light Theme' : 'Dark Theme'; }
-    };
-
-    function populateList(posts, listElementId) {
-        const listElement = document.getElementById(listElementId);
-        if (!listElement) return;
-
-        listElement.innerHTML = '';
-        posts.forEach(post => {
-            const listItem = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = `#${post.url}`;
-            link.setAttribute('data-post-url', post.url);
-            link.textContent = post.title;
-            listItem.appendChild(link);
-            listElement.appendChild(listItem);
-        });
-    }
-
-    function renderProtectedEmails() {
-        const user = 'saurabh';
-        const domain = 'bvrvl.com';
-        const fullEmail = user + '@' + domain;
-
-        const headerEmailLink = document.getElementById('author-email-link');
-          if (headerEmailLink && !headerEmailLink.href) {
-              headerEmailLink.href = 'mailto:' + fullEmail;
-              headerEmailLink.textContent = fullEmail;
-            }
-
-        const postEmailLink = document.getElementById('about-email-link');
-          if (postEmailLink && !postEmailLink.href) { 
-          postEmailLink.href = 'mailto:' + fullEmail;
-          postEmailLink.textContent = fullEmail;
-          }
-    }
-
-    const loadPost = async (url) => {
-      if (!postDisplayArea || !url) return;
-      if (mainContent) { mainContent.scrollTop = 0; }
-
-      postDisplayArea.innerHTML = '<p>Loading...</p>';
-      
-      const allLinks = document.querySelectorAll('.sidebar a[data-post-url]');
-      allLinks.forEach(link => { link.removeAttribute('aria-current'); });
-
-      const currentLink = document.querySelector(`.sidebar a[data-post-url="${url}"]`);
-      if (currentLink) { currentLink.setAttribute('aria-current', 'page'); }
-
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const htmlContent = await response.text();
-        const sanitizedHtml = htmlContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-        postDisplayArea.innerHTML = sanitizedHtml;
-
-        const backToTop = document.createElement('a');
-        backToTop.href = "#";
-        backToTop.className = 'back-to-top-link';
-        backToTop.textContent = 'Back to Top';
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (mainContent) { mainContent.scrollTo({ top: 0, behavior: 'smooth' }); }
-        });
-        postDisplayArea.appendChild(backToTop);
-        
-        renderProtectedEmails();
-        
-      } catch (error) {
-        console.error("Error loading post:", error);
-        postDisplayArea.innerHTML = `<p>Error loading content from <code>${url}</code>. Check path and filename.</p>`;
-      }
-    };
-
-    const handleRouteChange = () => {
-        const postUrl = window.location.hash.substring(1) || "posts/home.html";
-        loadPost(postUrl);
-    };
-
-    if (themeToggleButton) {
-      themeToggleButton.addEventListener("click", () => {
-        let currentTheme = body.classList.contains("dark-mode") ? "light" : "dark";
-        applyTheme(currentTheme);
-        localStorage.setItem("theme", currentTheme);
-      });
-    }
-
-    function initialize() {
-        const storedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        applyTheme(storedTheme || (prefersDark ? "dark" : "light"));
-        
-        document.getElementById("current-year").textContent = new Date().getFullYear();
-
-        renderProtectedEmails();
-
-        populateList(writingPosts, 'sidebar-writing-list');
-        populateList(poetryPosts, 'sidebar-poetry-list');
-        
-        window.addEventListener('hashchange', handleRouteChange);
-        handleRouteChange();
-    }
-
-    initialize();
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
   </script>
 </body>
 </html>

@@ -1,102 +1,133 @@
-<article>
-    <div class="post-meta">
-      <time datetime="2025-08-08">Aug 8, 2025</time>
-    </div>
-    <h1>Smriti: The Entire History of You</h1>
-    <div class="post-content">
-        <p><i>Tldr: I built a digital ghost of myself because wtf is wrong with me.
-        <br>Github Repo: <a href="https://github.com/bvrvl/Smriti" target="_blank">bvrvl/Smriti</a></i>.</p>
-        <hr>
-        <p>I started journaling a few months before I turned 10 and have been fairly consistent since. It is one of the very few habits that I took up early and haven't given up yet.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Smriti: The Entire History of You - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
 
-        <p>My oldest surviving journal entry is from <i>Jan 1, 2012</i>, the content of which I am not brave enough to share here.</p>
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-08-08">Aug 8, 2025</time>
+            </div>
+            <h1>Smriti: The Entire History of You</h1>
+            <div class="post-content">
+                <p><i>Tldr: I built a digital ghost of myself because wtf is wrong with me.
+                <br>Github Repo: <a href="https://github.com/bvrvl/Smriti" target="_blank">bvrvl/Smriti</a></i>.</p>
+                <hr>
+                <p>I started journaling a few months before I turned 10 and have been fairly consistent since. It is one of the very few habits that I took up early and haven't given up yet.</p>
+                <p>My oldest surviving journal entry is from <i>Jan 1, 2012</i>, the content of which I am not brave enough to share here.</p>
+                <img src="../assets/images/smriti/journal_entry_2012.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <hr>
+                <i><u>What does journaling do for me?</u></i>
+                <br><br>
+                <p>It's hard to say. I began because as a child, I was terrified of forgetting. I had this desire to remember every single thing that happened in my world -- both external and internal. I’d spend parts of school planning what to write that night; sometimes the plan became longer than the entry. I don't think that my motivation to journal is still the same. I do want to remember but now I am more attached to the habit itself. But again, it's hard to say.</p>
+                <p>I turned 18 during Covid. It had already been 2 years since I left home. When you live alone, you don't fear people going through your belongings once you lock the door. It's different at home. The fear speaks to you every second of your waking life. So was the case for me when I returned home to ride out the pandemic. After a year of this fear, I decided to scan all the journals I had ever kept, turn them into pdfs, and burn the hard copies. It felt like witchcraft (<i>in a good way, weirdly consoling</i>).</p>
+                <p>After a small detour to the cryptic world which was extremely hard to keep up with, all the journal entries I have made since August 2021 have been digital. From then to when I am writing this post, I have made over 500 entries digitally.</p>
+                <hr>
+                <p>A couple of weeks ago, I had just enough time to go through what l had written until then. It was good to re-remember. However, at some point, the records stopped being nostalgia and started to feel like archaeology.</p>
+                <p>There's this episode of Black Mirror called <i>The Entire History of You</i>, where a chip implanted in your brain records everything you see, hear, or do, and lets you rewind and relive those moments again. There's another episode of Black Mirror called <i>Be Right Back</i>, where a dead man is resurrected from the digital traces he left behind. His form is initially digital but he is ultimately given a body.</p>
+                <p>These two stories flashed before me because I knew that without meaning to, I had created something similar. A memory archive. A knowledge base of thought patterns.</p>
+                <p>So I decided to treat it that way.</p>
+                <hr>
+                <p>I built a small app to mine this archive. I named it <i>Smriti</i> - Sanskrit for remembrance, memory, that which is remembered.</p>
+                <p>It does two things: visualizes long-term patterns, and gives me a conversational interface to “talk” to my past. You can <a href="https://github.com/bvrvl/Smriti" target="_blank">check it out here</a>.</p>
+                <p>The first thing I built was a sentiment heatmap (like GitHub’s contribution chart), but instead of commits, it shows the emotional tone of my journal entries. For this, I used NLTK's VADER sentiment analyzer on each entry.</p>
+                <img src="../assets/images/smriti/heatmap.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>Green = better days, red = rougher ones. The clustering is surprising. I can see streaks I forgot about. An interesting read: there are more green days than red ones. That's data I wouldn’t have trusted if it came from memory alone. But idk. Could be survivorship bias. I write mostly on the days I feel good? But maybe not. I would like to think I'm positive.</p>
+                <hr>
+                <p><i><u>Top words</u></i></p>
+                <p>Of course it's "work". Not a revelation, but surprisingly honest.</p>
+                <img src="../assets/images/smriti/top_words.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <hr>
+                <i><u>Sentiment Fluctuation: grouped by weekday, hour, and month</u></i>
+                <hr>
+                <p>I grouped journal entries by weekday and took their average sentiment. I know that it won't give me the <i>why</i> but it gives me a <i>when</i> and that's interesting enough.</p>
+                <img src="../assets/images/smriti/sentiment_by_day.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>Monday blues are real. It's not just a slight sentiment dip, it's :) vs :(. And the high on Fridays. Have I always been this predictable? The rest of the days are pretty consistent, indistinguishable from one another. Although I'm surprised that there isn't a big dip on Thursday.</p>
+                <hr>
+                <p>I zoomed in further and broke down <i><u>sentiment by the hour of the day</u></i>.</p>
+                <img src="../assets/images/smriti/sentiment_by_hour.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>And here's how I interpret the data: Mood gradually worsens after 7pm reaching the lowest at 4am. This isn't surprising. If I am journaling at 4am, it means that I haven't slept and it's most likely because of something that's bothering me. I also seem to be pretty positive at 5/6am. Perhaps it's the joy of waking up early in the face of what possibilities the day may bring with it. However, I do not understand the mood swings between 3pm and 9pm. I can't think of an anchor present at those times. It may simply be the general volatility with which I live my live. I'm working on that.</p>
+                <hr>
+                <p>Then I zoomed out. <i><u>Sentiment by the month of the year</u></i>.</p>
+                <img src="../assets/images/smriti/sentiment_by_month.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>This is interesting. I've never thought of myself as someone who takes birthdays seriously but the high in March tells a different story. The data also confirms something I have suspected for a long time -- that a sudden optimism grows within me around August. It also reflects the downs that winter brings in me. I love when it is winter but I also know that I am not my best then.</p>
+                <hr>
+                <i><u>Answering the <b>why</b></u></i><br><br>
+                <p>The <i>The Entire History of You</i> part was done. Now I needed <i>Be Right Back</i>. I wanted to talk to my ghost. I had several options:</p>
+                <ol style="margin-left: 2em;">
+                  <li>Build a simple keyword matching engine, and add scaffolding around it. (<i>Too Basic</i>)</li>
+                  <li>Feed all of my journal entries into a smart, long context model like Gemini and talk to it. (<i>nope; privacy was the whole point</i>)</li>
+                </ol>
+                <p>So I chose to:</p>
+                <ol start="3" style="margin-left: 2em;">
+                  <b><li>Run a Small Language Model (Gemma 3) locally on my own machine.</li></b>
+                </ol>
+                <hr>
+                <p><i><u>How the ghost works:</u></i></p>
+                <ul style="margin-left: 2em;">
+                    <li><i>Query Expansion:</i> First, I use the model to rewrite my simple question into a richer set of search terms, making the search smarter.</li>
+                    <li><i>Semantic Search:</i> I take the expanded query and use a sentence-transformer model (all-MiniLM-L6-v2) to find the most relevant journal entries from my database based on conceptual meaning.</li>
+                    <li><i>Grounded Generation:</i> I feed these relevant entries to the Gemma 3 model as context, along with a carefully crafted prompt that instructs it to answer only based on the memories provided, and to think in a chain-of-thought process before giving a final answer.</li>
+                </ul>
+                <p><i>Yes, my laptop got hot and loud and I thanked it like a dying pet.</i></p>
+                <hr>
+                <p>This was the most uncanny, eerie part of it all. The ghost answers in ways that feel like me, and in ways that don’t. It can offer advice to my 2021 self or summarize my fears; it can’t create new experiences or actually be me. It’s a ghost that only wakes up when asked.</p>
+                <p>Here are some examples:</p>
+                <p><i><b>What do you fear the most?</b></i></p>
+                <img src="../assets/images/smriti/digital_ghost_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <hr>
+                <p><i><b>What advice would you give to your 2021 self?</b></i></p>
+                <img src="../assets/images/smriti/advice_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <hr>
+                <p><i><b>Write a journal entry for today.</b></i></p>
+                <img src="../assets/images/smriti/entry_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>This is where the illusion breaks, but in a poetic way. It shows the boundary of the system. It can breathe, but it can't live. It can remember, but it can’t recall <i>now</i>. It is ever-waiting for a question to give it a fleeting moment of awareness.</p>
+                <p>And that is a strange feeling.</p>
+                <hr>
+                <p>Github <a href="https://github.com/bvrvl/Smriti" target="_blank">Repo for Smriti</a></p>
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
 
-        <img src="assets/images/smriti/journal_entry_2012.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-
-        <hr>
-        <i><u>What does journaling do for me?</u></i>
-        <br><br>
-        <p>It's hard to say. I began because as a child, I was terrified of forgetting. I had this desire to remember every single thing that happened in my world -- both external and internal. I’d spend parts of school planning what to write that night; sometimes the plan became longer than the entry. I don't think that my motivation to journal is still the same. I do want to remember but now I am more attached to the habit itself. But again, it's hard to say.</p>
-
-        <p>I turned 18 during Covid. It had already been 2 years since I left home. When you live alone, you don't fear people going through your belongings once you lock the door. It's different at home. The fear speaks to you every second of your waking life. So was the case for me when I returned home to ride out the pandemic. After a year of this fear, I decided to scan all the journals I had ever kept, turn them into pdfs, and burn the hard copies. It felt like witchcraft (<i>in a good way, weirdly consoling</i>).</p>
-
-        <p>After a small detour to the cryptic world which was extremely hard to keep up with, all the journal entries I have made since August 2021 have been digital. From then to when I am writing this post, I have made over 500 entries digitally.</p>
-        <hr>
-        <p>A couple of weeks ago, I had just enough time to go through what l had written until then. It was good to re-remember. However, at some point, the records stopped being nostalgia and started to feel like archaeology.</p>
-
-        <p>There's this episode of Black Mirror called <i>The Entire History of You</i>, where a chip implanted in your brain records everything you see, hear, or do, and lets you rewind and relive those moments again. There's another episode of Black Mirror called <i>Be Right Back</i>, where a dead man is resurrected from the digital traces he left behind. His form is initially digital but he is ultimately given a body.</p>
-
-        <p>These two stories flashed before me because I knew that without meaning to, I had created something similar. A memory archive. A knowledge base of thought patterns.</p>
-        
-        <p>So I decided to treat it that way.</p>
-        <hr>
-        <p>I built a small app to mine this archive. I named it <i>Smriti</i> - Sanskrit for remembrance, memory, that which is remembered.</p>
-
-        <p>It does two things: visualizes long-term patterns, and gives me a conversational interface to “talk” to my past. You can <a href="https://github.com/bvrvl/Smriti" target="_blank">check it out here</a>.</p>
-
-        <p>The first thing I built was a sentiment heatmap (like GitHub’s contribution chart), but instead of commits, it shows the emotional tone of my journal entries. For this, I used NLTK's VADER sentiment analyzer on each entry.</p>
-        
-        <img src="assets/images/smriti/heatmap.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-
-        <p>Green = better days, red = rougher ones. The clustering is surprising. I can see streaks I forgot about. An interesting read: there are more green days than red ones. That's data I wouldn’t have trusted if it came from memory alone. But idk. Could be survivorship bias. I write mostly on the days I feel good? But maybe not. I would like to think I'm positive.</p>
-        <hr>
-        <p><i><u>Top words</u></i></p>
-        <p>Of course it's "work". Not a revelation, but surprisingly honest.</p>
-        
-        <img src="assets/images/smriti/top_words.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <hr>
-        <i><u>Sentiment Fluctuation: grouped by weekday, hour, and month</u></i>
-        <hr>
-        <p>I grouped journal entries by weekday and took their average sentiment. I know that it won't give me the <i>why</i> but it gives me a <i>when</i> and that's interesting enough.</p>
-        <img src="assets/images/smriti/sentiment_by_day.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <p>Monday blues are real. It's not just a slight sentiment dip, it's :) vs :(. And the high on Fridays. Have I always been this predictable? The rest of the days are pretty consistent, indistinguishable from one another. Although I'm surprised that there isn't a big dip on Thursday.</p>
-        <hr>
-        <p>I zoomed in further and broke down <i><u>sentiment by the hour of the day</u></i>.</p>
-        <img src="assets/images/smriti/sentiment_by_hour.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <p>And here's how I interpret the data: Mood gradually worsens after 7pm reaching the lowest at 4am. This isn't surprising. If I am journaling at 4am, it means that I haven't slept and it's most likely because of something that's bothering me. I also seem to be pretty positive at 5/6am. Perhaps it's the joy of waking up early in the face of what possibilities the day may bring with it. However, I do not understand the mood swings between 3pm and 9pm. I can't think of an anchor present at those times. It may simply be the general volatility with which I live my live. I'm working on that.</p>
-        <hr>
-        <p>Then I zoomed out. <i><u>Sentiment by the month of the year</u></i>.</p>
-        <img src="assets/images/smriti/sentiment_by_month.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <p>This is interesting. I've never thought of myself as someone who takes birthdays seriously but the high in March tells a different story. The data also confirms something I have suspected for a long time -- that a sudden optimism grows within me around August. It also reflects the downs that winter brings in me. I love when it is winter but I also know that I am not my best then.</p>
-        <hr>
-        <i><u>Answering the <b>why</b></u></i><br><br>
-        <p>The <i>The Entire History of You</i> part was done. Now I needed <i>Be Right Back</i>. I wanted to talk to my ghost. I had several options:</p>
-        <ol style="margin-left: 2em;">
-          <li>Build a simple keyword matching engine, and add scaffolding around it. (<i>Too Basic</i>)</li>
-          <li>Feed all of my journal entries into a smart, long context model like Gemini and talk to it. (<i>nope; privacy was the whole point</i>)</li>
-        </ol>
-        <p>So I chose to:</p>
-        <ol start="3" style="margin-left: 2em;">
-          <b><li>Run a Small Language Model (Gemma 3) locally on my own machine.</li></b>
-        </ol>
-        <hr>
-        <p><i><u>How the ghost works:</u></i></p>
-        <ul style="margin-left: 2em;">
-            <li><i>Query Expansion:</i> First, I use the model to rewrite my simple question into a richer set of search terms, making the search smarter.</li>
-            <li><i>Semantic Search:</i> I take the expanded query and use a sentence-transformer model (all-MiniLM-L6-v2) to find the most relevant journal entries from my database based on conceptual meaning.</li>
-            <li><i>Grounded Generation:</i> I feed these relevant entries to the Gemma 3 model as context, along with a carefully crafted prompt that instructs it to answer only based on the memories provided, and to think in a chain-of-thought process before giving a final answer.</li>
-        </ul>
-
-        <p><i>Yes, my laptop got hot and loud and I thanked it like a dying pet.</i></p>
-        <hr>
-        <p>This was the most uncanny, eerie part of it all. The ghost answers in ways that feel like me, and in ways that don’t. It can offer advice to my 2021 self or summarize my fears; it can’t create new experiences or actually be me. It’s a ghost that only wakes up when asked.</p>
-        
-        <p>Here are some examples:</p>
-
-        <p><i><b>What do you fear the most?</b></i></p>
-        <img src="assets/images/smriti/digital_ghost_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <hr>
-        <p><i><b>What advice would you give to your 2021 self?</b></i></p>
-        <img src="assets/images/smriti/advice_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-        <hr>
-        <p><i><b>Write a journal entry for today.</b></i></p>
-        <img src="assets/images/smriti/entry_qna.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
-
-        <p>This is where the illusion breaks, but in a poetic way. It shows the boundary of the system. It can breathe, but it can't live. It can remember, but it can’t recall <i>now</i>. It is ever-waiting for a question to give it a fleeting moment of awareness.</p>
-        
-        <p>And that is a strange feeling.</p>
-        <hr>
-        <p>Github <a href="https://github.com/bvrvl/Smriti">Repo for Smriti</a></p>
-        <hr>
-    </div>
-</article>
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
