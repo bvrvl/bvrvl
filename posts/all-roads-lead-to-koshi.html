@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>All Roads Lead to Koshi - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-08-15">Aug 15, 2025</time>
+            </div>
+            <h1>All Roads Lead to Koshi</h1>
+            <div class="post-content">
+                <p><i>Github Repo: <a href="https://github.com/bvrvl/all-roads-lead-to" target="_blank">bvrvl/all-roads-lead-to</a></i></p>
+                <hr>
+                <p>Nepal's National Highway System has 80 Highways. They are named serially from NH01(Mahendra Highway) to NH80(Bastipur–Belsot Road <i>Planned </i>). </p>
+                <p><i>But most of them seem to 'point' to one place.</i></p>
+                <img src="../assets/images/all-roads-lead-to-koshi/map.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p><i>By Groetjes, Peter, <a href="https://commons.wikimedia.org/w/index.php?curid=152688088">Wikimedia Commons</a></i>.</p>
+                <hr>
+                <p>A closer look at the map reveals an imbalance: highways are concentrated in the Terai and the lower Hills, while the rest of the country is mostly disconnected.</p>
+                <p>For instance, Jhapa alone is the start/termination for 3 East-West highways while the 21 high Himalayan districts barely have one single horizontal highway of any length.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/asianhighway.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p><i>Asian Highway 02 right before it connects to NH01 in Kakarbhitta, Jhapa as seen from Panitanki, India</i> (Google Street View)</p>
+                <hr>
+                <p>Two thousand years after the glory of Rome, the road network in Europe still radiates from what once was the center of the world.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/rome.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p><i>Moovel Lab. (2015). <a href="https://roadstorome.moovellab.com">Roads to Rome.</a></i></p>
+                <p>Could a similar statement be made about Nepal?</p>
+                <p>My initial assumption was that if there were such a city, it would be Kathmandu or Hetauda and if it were a district, it would be Chitwan.</p>
+                <p>It turns out that the heart of Nepal’s highway network isn’t a city.</p>
+                <p>All roads apparently lead to the Koshi Province.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/koshi.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p><i>By Gaurav Bhandari, <a href="https://commons.wikimedia.org/w/index.php?curid=135354154">Wikimedia Commons</a></i>.</p>
+                <p><i>Koshi Barrage, Saptakoshi River</i></p>
+                <hr>
+                <h2>Methodology</h2>
+                <p><i>The full code is on my <a href="https://github.com/bvrvl/all-roads-lead-to">GitHub</a> if you want to observe or replicate the analysis.</i></p>
+                <p>Wikipedia seemed to have a rough overview of the junctions and major places that each of the 80 highways touched. While not perfect, this was enough data to mine for an interesting answer.</p>
+                <p>I wrote a python script to scrape the main Wikipedia page on the <a href="https://en.wikipedia.org/wiki/National_Highway_System_(Nepal)">National Highways of Nepal</a> and get the URL for each highway (NH01-NH80).</p>
+                <p>Then I used another script to scrape individual highway pages and clean out redundant data like recurring tables, references, and other noise.</p>
+                <p>I used Gemini 2.5 Flash via the API to identify the names of the places along each highway.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/terminal.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>The findings were then complied in a .csv file.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/csvfile.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <p>I used another script to analyze the frequency and identify the busiest hubs.</p>
+                <img src="../assets/images/all-roads-lead-to-koshi/result.png" style="width: 100%; max-width: 600px; margin-top: 1em; margin-bottom: 1em;">
+                <hr>
+                <p>I remember returning from Kathmandu and seeing the Koshi River. It was that moment when everything felt like home. My friends felt the same. Even though home was far away, just glimpsing Koshi made the journey feel complete. It feels fitting that all roads lead here. After all, <i>rome</i> is where the heart is.</p>
+                <hr>
+                <p>Github <a href="https://github.com/bvrvl/all-roads-lead-to" target="_blank">Repo</a> for All Roads Lead to Koshi.</p>
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
