@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Chapter 1: Mercury - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-08-08">Aug 8, 2025</time>
+            </div>
+            <h3>There Will Be an Eclipse in December</h3>
+            
+            <h1>Chapter 1: Mercury</h1><hr>
+            <div class="post-content">
+<p><i>Let the light depart; let the cities forget</i><br>
+    <i>Let there be Shadows</i></p>
+    
+    <p>Mhriva was a proud resident of the wealthy Urm-mining town, Elfchester. The only son of Mr. and Mrs. Tanjil, he was heir to the family estate worth over one hundred million purps. About seventeen years ago, that is seven years before the tragedy befell their cursed town, I was invited to dine with the Tanjils only as a plus one, brought along by a mutual, who would rather forfeit a generous storefront contract from the patriarch than be at their grand entrance by herself.</p>
+    
+    <p>It is seventeen years later now, that is seven years after the tragedy befell their cursed town, that I have collected enough courage to tell this story to the reader. The ridicule I have borne for telling half-truths has far surpassed my threshold. My silence is at an end. I shall tell it all.</p>
+    
+    <p>The Tanjils were not a family of science, nor of faith -- but they cloaked themselves in both when it suited them. They mined the ground but their eyes were always on the heavens. When Enie and I reached Langra, their evening dining-hall, there were three figures seated at the table. "Could it be Mhriva? It can't be Mhriva," Enie said to me. And she was right. Mr. Tanjil was known for a certain softness but when it came to Mhriva's recent, and very public, misfortunes, even he could not forgive him.</p>
+    
+    <p>To draw a complete sketch of the Tanjils, I must first tell the reader of Elfchester, for the cursed family and their cursed town are linked inextricably. Twenty-one years ago, when Mhriva was but a boy of thirteen, the residents of Elfchester, like their counterparts all over the country, were gripped by the Urm-frenzy. Backyards were turned into equipment grounds and the average Serling went to sleep with dreams of generational fortune. This madness came after the Great Proclamation of '39, when Dr. Sarl Mercury made a world-wide visual announcement of his revolutionary mining tech, the Umbra.</p>
+    
+    <p>The Tanjils were one of three families in Elfchester to truly profit from the Umbra. Unlike the Dunbars and the Bresks, who received their <i>birta</i> from The Sarl Mercury Company and left town to enjoy their newfound luxury, the Tanjils stayed. They had built an empire, and everyone in town knew it was wise to stay on their good side.</p>
+    
+    <p>The reader may have gotten the impression that I am occupying them with trivialities but I know of no other way to tell this story. I am trying my best to keep it as close to the core as possible. I am bound to tell everything as-is for I promised Enie long ago that when the time came, I would tell everything as-is. I am now about to tell the reader how everything went down without history taking a note. I will tell the reader how Elfchester faced the judgement of heaven and how the gods looked away while it happened.</p>
+    
+    <p>For it is at the dinner, just after the drinks were served, that the third guest, Dasha, first uttered the word. It is at that polished table, under the weight of Mr. Tanjil's silence, that I first heard about <i>the Eclipse</i>.</p>
+</div>
+</article>
+</div>
+
+<footer class="site-footer-main">
+© <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+</footer>
+</main>
+
+<script>
+const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+</script>
+</body>
+</html>
