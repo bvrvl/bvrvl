@@ -153,3 +153,87 @@ body.dark-mode .theme-switcher button:hover { color: var(--dark-link-hover-color
 .log-entry hr { margin-top: 2em; margin-bottom: 0; }
 .log-image-wrapper { max-width: 500px; margin-top: 1.5em; margin-bottom: 1.5em; margin-left: auto; margin-right: auto; border-radius: 4px; overflow: hidden; }
 .log-image-wrapper img { display: block; width: 100%; height: auto; }
+
+/* YouTube Embedder Styles */
+.youtube-embed-form {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.youtube-embed-form label {
+  display: block;
+  margin-bottom: 0.6em;
+  color: var(--text-muted-color);
+  font-size: 0.95em;
+}
+
+.youtube-embed-form input[type="text"] {
+  font-size: 0.95em;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 1em;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.youtube-embed-form button {
+  font-size: 0.95em;
+  padding: 8px 15px;
+  border: 1px solid var(--link-color);
+  background-color: var(--link-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.youtube-embed-form button:hover {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  margin-top: 1.5em;
+  border-radius: 4px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark Mode Adjustments for YouTube Embedder */
+body.dark-mode .youtube-embed-form label {
+  color: var(--dark-text-muted-color);
+}
+
+body.dark-mode .youtube-embed-form input[type="text"] {
+  border-color: var(--dark-border-color);
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode .youtube-embed-form button {
+  border-color: var(--dark-link-color);
+  background-color: var(--dark-link-color);
+  color: var(--dark-bg-color);
+}
+
+body.dark-mode .youtube-embed-form button:hover {
+  background-color: var(--dark-link-hover-color);
+  border-color: var(--dark-link-hover-color);
+}
