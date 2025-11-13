@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Chapter 3: Earth - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a><hr>
+    <ul style="list-style: none; padding-left: 0;">
+      <li><a href="/posts/there-will-be-an-eclipse-in-december/mercury.html">Chatper 1: Mercury</a></li>
+      <li><a href="/posts/there-will-be-an-eclipse-in-december/venus.html">Chatper 2: Venus</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-09-19">Sep 19, 2025</time>
+            </div>
+            <h3>There Will Be an Eclipse in December</h3>
+            
+            <h1>Chapter 3: Earth </h1><hr>
+            <div class="post-content">
+                <p><i>18 years before the Eclipse of Elfchester</i><br>
+                <i>Wichita, KS</i></p>
+                <p>I could fall to my death right now and her eyes wouldn’t shed a tear, Oh Lord, how do I know I’m real when she doesn’t see me?</p>
+                <p>I have heard, in fragments and rumors, that she is courting suitors and I will tell you that I don’t care, and I will try my best to play the fool, you know how it comes natural to me, you have known me for a long time.</p>               
+                <p>I don’t blame her, she has strong brains, competition drives better results, I shall polish myself more, I don’t blame her, she’s a capitalist, that’s all. I could fall to my death right now and another lineman will replace me. Even in Wichita, I’m still on the line.</p>
+                <p>Years ago I had a blanket that was so perfect. It was just long enough to cover my feet but not fall off the bed, heavy enough to make its presence felt but not suffocate me. I then lost it. And the world has no more blankets for me.</p>
+                <p>Should I fall to my death right now, will the news reach her the way I want it to? Will she stop and think of me? </p>
+                <p>There is a house at the end of this road, you can see it only from up the telephone pole. It’s a blip right before the horizon starts. I sometimes think of her as the horizon and me as the house. I’m just an insignificant dot. I’m not hiding her vastness, I couldn’t even if I tried. But a dot is a nuisance and it has to go nonetheless.</p>
+                <p>If I fell to my death right now, would she tell her friends about it? Would she tell them my name?</p>
+                <p>If she ever doubts my perception of her, will you tell her that even atop a telephone pole in Wichita, I found comfort in her thoughts over the strength of my harness.</p>
+            </div>
+</article>
+</div>
+
+<footer class="site-footer-main">
+© <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+</footer>
+</main>
+
+<script>
+const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+</script>
+</body>
+</html>
