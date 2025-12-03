@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Chapter 3.5: Moon - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a><hr>
+    <ul style="list-style: none; padding-left: 0;">
+      <li><a href="/posts/there-will-be-an-eclipse-in-december/mercury.html">Chatper 1: Mercury</a></li>
+      <li><a href="/posts/there-will-be-an-eclipse-in-december/venus.html">Chatper 2: Venus</a></li>
+      <li><a href="/posts/there-will-be-an-eclipse-in-december/earth.html">Chatper 3: Earth</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-12-03">Dec 03, 2025</time>
+            </div>
+            <h3>There Will Be an Eclipse in December</h3>
+            
+            <h1>Chapter 3.5: Moon </h1><hr>
+            <div class="post-content">
+            <p><i>Dear Reader,</i></p>
+
+            <p>I know I haven't been faithful to your interest in hearing my story, and I know that I have been ragged here and there but don't you dare question my integrity! You have never seen the moon like I have.</p>
+            <p>Most of you will die without ever truly seeing the moon. Worse even, you will never know of your ignorance. How it glides through the night, over the month, the seasons. You live on a rock in space and just like that rock, your lives, too, revolve round the sun. You abide by the celestial order and have given up on all versions of defiance decades ago. The moon does not care. It won't tame you; it abandoned you before you were born. And don't you dare question the pronouns I assign to it! You have never known the moon like I have.</p>
+            <p>Enie knew the moon. She knew it better than I ever could. Its apathy didn't matter to her, she cared for it just the same. The moon is an oracle of all things heaven and earth.  I sometimes wonder if the moon knew about the Umbra all along. I wonder if it knows about everything all the time. Your rock flaunts its warm might all day but is unaware of anything, mine hides its majesty but knows everything.</p>
+            <p>The last time Mr. Tanjil and Mhriva were together, face-to-face was a year before the Eclipse. It was in Langra, of all places. In an unfitting irony, Langra was also the place where Mhriva was born. That old castle had once held meetings between hundreds of fathers and sons before the Tanjils. Its torn walls held secrets that could alter what is recorded in some esoteric books of history. It's gone now. The Tanjils are gone, Eflchester is gone, my Enie is gone. It's over.</p>
+            <p>But tonight I speak not of the Tanjils, nor the Eclipse. Tonight is strictly between you and me. You have to understand where I'm coming from and what I have seen and the magnitude of what I am sharing. Tonight is about the moon.</p>
+            <p>If you ask nicely, I may teach you how to stop living for the sun and orient yourself to the moon. But there are serious considerations and I would never recommend it. To live for the moon is to surrender your soul. The moon will not accept what you have to offer, it never does. You're not surrendering yourself to the moon -- there are no known ways to do that. There is no direction to what you're directing. It's pure intentionality flipped in on itself. You attend to attention. When you live for the moon, you miss entire days, and you will have to look at it with indifference. Your loss is your offering. You're happy to lose. Your loss is how you show deference.</p>
+            <p>The Eclipse is the moon's way of taking by force what rightfully belongs to it. And if I have not made it clear yet, everything belongs to the moon. Venus cheated while the moon played fair, and men offered Venus godhood. Venus stripped the moon of everything: its glory, its grace, its identity. The moon's real name has been lost to the ashes of time. The lunar monuments were stolen by the Venusians. And the moon has been plotting its revenge ever since.</p>
+            <p>Now, if you ever dare question my intentions, I challenge you. Try living for the moon and meet me again.</p>
+            <p>I will always remain<br>
+            <i>Your faithful storyteller,<br>
+            The Narrator</i></p>
+            </div>
+</article>
+</div>
+
+<footer class="site-footer-main">
+© <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+</footer>
+</main>
+
+<script>
+const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+</script>
+</body>
+</html>
