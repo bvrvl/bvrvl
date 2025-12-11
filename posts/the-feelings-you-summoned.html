@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>The feelings you summoned - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2021-02-18">Feb 18, 2021</time>
+            </div>
+            <h1>The feelings you summoned</h1>
+            <div class="post-content">
+            <pre class="prose">
+Zoning out on the passenger bus
+Forgiving time amidst the rush
+Filthy seat covers teasing us
+and the broken lights adding on
+And though the fear would never begone
+The mist trying to thin in
+for the feelings you summoned
+
+Bottles, they're so easy
+for a cap could seal them in place
+and the water remains untouched
+and spilling out is never a thought
+Emotions, they're so different
+for the vessel has nothing to block
+and the fear of leakage is always persistent
+for the feelings you summoned
+
+Half-eyed awareness
+resting in on your brownish-black hair
+and the dusty glass window
+blowing out cold humid air
+The green-eyed jealous people
+waiting there for so much long
+wish they'd all get a chunk of
+the feelings you summoned
+
+Now this is where I get off
+for I've got some errands to run
+but you can keep my bottle 'cause
+maybe it's where it belongs
+Our ways to life are different
+I walk and you probably run
+We part now but I thank you for
+the feelings you summoned.
+            </pre>
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
