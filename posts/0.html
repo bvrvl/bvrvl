@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>0,0,0,0 - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-12-11">Dec 11, 2025</time>
+            </div>
+            <h1>0,0,0,0</h1>
+            <div class="post-content">
+                <p>Home.</p>
+
+<p>Last summer, my friends and I were talking about things when the conversation slowly moved to identity, belongingness, and the question of home. To me, “home” has been such a detached concept for so long. I have lived in 9 different houses in the past 7 years. My parents don’t live in my childhood hometown anymore and no one place comes to mind when I think of home. But there has always been one ceiling or another that I have woken up to every day for months. Not calling these ceilings home feels like a betrayal of the most intimate order.</p>
+
+<p>I proposed a concept to my friends that summer — 0,0,0,0. I use it as an alternative to “home.” It can be loosely defined as the origin point of your emotion-identity coordinate system at a given phase in life. 0,0,0,0 is the place where your physical and temporal identity aligns with your emotional landscape to stem outward from for an extended period of time. It could be anywhere from your dorm room you wake up in to the subway station you take everyday. For example, in an email, a friend described Union Square as the 0,0,0,0 for New York. I remember the park being the only recurring place in our first few weeks in the city. Every time I walk by the square or pass through that old 14 St. station, it feels like the origin point. And the whole city stems outward from there.</p>
+<p>It’s a useful concept. It makes detachment easier in a way that “home” cannot. Shifting 0,0,0,0 is not as bitter as switching homes. It jumps. It’s supposed to. They say change gets harder as you grow older. I hope it’s only narrowly true.</p>
+<img src="../assets/images/0/unionsq.png" alt="WUnionSq" style="width: 50%; margin-top: 1em; margin-bottom: 1em;">
+
+                </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
