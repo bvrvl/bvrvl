@@ -112,9 +112,73 @@ hr { border: 0; height: 1px; background-color: var(--border-color); margin: 2.5e
 .theme-switcher button:hover { color: var(--link-hover-color); }
 
 @media (max-width: 650px) {
-  body { grid-template-columns: 1fr; }
-  .sidebar { border-right: none; border-bottom: 1px solid var(--border-color); padding-right: 0; padding-bottom: 20px; }
-  .embeddable-buttondown-form input[type="email"], .embeddable-buttondown-form input[type="submit"] { display: block; width: 90%; margin: 0 auto 10px auto; }
+  body { 
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* MAGIC FIX: This visually "unwraps" the main container so we can 
+     reorder its children individually alongside the sidebar */
+  .main-content {
+    display: contents;
+  }
+
+  /* ORDER 1: Header (Logo/Name) */
+  .site-header { 
+    order: 1; 
+    width: 100%;
+  }
+
+  /* ORDER 2: The Blog Post/Page Content */
+  #post-display-area { 
+    order: 2; 
+    width: 100%;
+  }
+
+  /* ORDER 3: Sidebar (Navigation) */
+  .sidebar {
+    order: 3;
+    width: 100%;
+    border-right: none;
+    
+    /* Add borders to sandwich it neatly between content and footer */
+    border-top: 1px solid var(--border-color); 
+    border-bottom: 1px solid var(--border-color); 
+    
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: left; /* Optional: centers the links if you prefer */
+  }
+
+  /* ORDER 4: Subscribe Form */
+  #buttondown-embed-wrapper {
+    order: 4;
+    width: 100%;
+    margin-top: 0;
+    border-top: none; /* Remove its own border since Sidebar has one */
+    padding-top: 0;
+  }
+
+  /* ORDER 5: Copyright Footer */
+  .site-footer-main { 
+    order: 5; 
+    width: 100%;
+  }
+  
+  /* Ensure Sidebar links are easy to tap */
+  .sidebar ul li {
+      margin-bottom: 0.8em;
+  }
+
+  /* Existing Mobile Styles */
+  .embeddable-buttondown-form input[type="email"], 
+  .embeddable-buttondown-form input[type="submit"] { 
+      display: block; 
+      width: 90%; 
+      margin: 0 auto 10px auto; 
+  }
   .theme-switcher { position: absolute; top: 5px; right: 5px; }
 }
 @media (max-width: 480px) {
