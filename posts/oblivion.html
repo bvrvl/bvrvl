@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Oblivion in Blue - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2025-08-15">Jan 18, 2026</time>
+            </div>
+            <h1>Oblivion in Blue</h1>
+            <div class="post-content">
+                
+                <p>There rarely exists a moment now where my thoughts are as thorny as they once were. But the howling never stops and it's a cruel world. Nothing points to you. Nothing ever aches.</p>
+
+<p>I may have grown a little, seen a little. My mattress is different now and I change my bedsheets twice a week. I don't leave as often, peel as often. But I still fidget my fingers and I leave the tilt in my glasses unfixed.</p>
+
+<p>Care comes easy to me. I have never touched the floorboard with both my heels and toes at the same time. They're always lagging, half a second too late, because I know that there's an old woman underneath my feet. She smiles when she's not weeping. Her niqab hides her wrinkles. And I think she's me.</p>
+
+<p>I can negate the blues with the lights in my room. Coal leaves no smudge on an ashy wall. And there are no cold feet in hellfire. My veins are green, like all things in nature, but it is blood that they carry. It is blood that clings to them like a newborn monkey clings to its mother.</p>
+
+<p>As I keep myself warm, white rains freeze the city. But my curtains are blacked out and I remain oblivious for as long as I choose. There is no snow at home. And it's always cold when you're not home.<br>Memory is heat.<br>Nostalgia is the remembrance of warmth when you're freezing.<br>Hope is a fireplace just out of sight.</p>
+<p>They do not share the same womb. Each is more stubborn than the last.</p>
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
