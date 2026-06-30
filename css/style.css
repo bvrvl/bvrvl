@@ -130,13 +130,13 @@ h6 {
 
 h1 {
   margin-top: 0;
-  font-size: clamp(2.35rem, 7vw, 4.5rem);
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
   line-height: 0.98;
   font-weight: 560;
 }
 
 article > h1 {
-  max-width: 12ch;
+  max-width: 16ch;
 }
 
 h2 {
