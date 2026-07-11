@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Structured Thought - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2026-07-11">Jul 11, 2026</time>
+            </div>
+            <h1>Structured Thought</h1>
+            <div class="post-content">
+                
+                <p>Every conversation I have, I am conflicted between two ways of expression: restrict myself with structure and be understood, or speak the truth and not get the point across. While they sound like extremes, I have not yet found a balance between the two. Neither of them has anything to do with social niceties, which is a different conversation, but both have been highly inefficient in their own ways, and are irreconcilable.</p>
+
+<p>I initially wanted this entry to be a personal defense against such inefficiencies. I have always had trouble using language. Impromptu, orally more so than in writing. I don't believe that it stems from a speech impediment. Although I admit that there are traces of such, they often vanish when I slow down.<br>I rely much on premeditated soundbites and jokes, of which I have now gathered a sizable library, to gain an edge in conversations. I have an imperative to keep evolving my one-liners and remarks so that I don't get dull or repetitive. They serve me many a leeway ... alas speaking my mind is not one of them. I cannot defend my communication issues with witty wordplay. Hence, this post had to be taken in a different direction.</p>
+
+<p>For much of highschool, I wrongly identified my lack of structured thought as an articulation mismatch between the two languages I spoke. My categories and assumptions were framed in two different lenses: Nepali governed much of my phenomenological world, while English was an academic looking-glass. I believed that there were holes in my lingual landscape because to retrieve the necessary categories, I would have to switch to a different mode of language, which required significant cognitive effort. To do so repeatedly, in real-time conversations, caused articulation fatigue. However, I have since experienced enough code switching and social situations to know that it wasn't the case. I now believe that there are indeed holes but they are more relational than lingual, and I don't know any more than that. Identifying holes is hard and there is a chance of landing on something so fundamental about myself that the ugliness of what I discover will render me dysfunctional. Once again, I push all discovery to the future. I'll deal with it later.</p>
+
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
