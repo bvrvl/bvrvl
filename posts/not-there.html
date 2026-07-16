@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="bvrvl blog" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>I am not there - bvrvl</title>
+</head>
+<body>
+  <div class="theme-switcher">
+      <button id="theme-toggle-button">Dark/Light Theme</button>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="/index.html" class="sidebar-back-link">← Back to Main</a>
+  </aside>
+
+  <main class="main-content">
+      <header class="site-header">
+        <div class="site-branding">
+          <h1>bvrvl</h1>
+          <p class="site-tagline">blog</p>
+        </div>
+        <div class="site-author">
+          <p class="author-name">Saurabh Baral</p>
+          <a id="author-email-link" class="author-email"></a>
+        </div>
+      </header>
+      
+      <div id="post-display-area">
+        <article>
+            <div class="post-meta">
+              <time datetime="2026-07-16">Jul 16, 2026</time>
+            </div>
+            <h1>I am not there</h1>
+            <div class="post-content">
+                
+                <p>It wasn’t always like this, of course, I’ve had seconds, or even minutes if lucky, when I may have lost sight of myself -- perhaps in the company of someone who could lift me off my place in time and space, but also in solitude when an endeavor that seemed bigger than life itself would seduce me into giving it all of my consciousness, my focus and desire -- but this is nothing like that, no, this is different, in fact I’d argue that this time, it is such a novelty that I shouldn’t even be sharing this with you because it could be a call from the heavens, a divine odyssey that my conformist identity can’t wrap its head around, and dare I anger the gods and think of it as a worldly experience and talk about it to mortals, in mortal tongue, mortal keywords, medium, and how can I forget all the chances that the gods have given me already, that I never deserved but was blessed with because the gods are kind and the gods love me, and I should be grateful for the blessings that they shower me with, for even after I upset them and fail them time and again in one life after another, for hundreds of lives, for thousands of lives, they still love me, but I have thought enough, and I have made my decision, and I will be talking about it to you in mortal tongue, in mortal keywords, medium, to show you what was done to me and what is happening to me because how can the gods punish me if I am no longer there.</p>
+
+<p>You don't see me because I am not there and you have always known that I was never there and yet you kept dreaming for so long and kept yourself from waking up for so long; you didn't have me  when you said you shoulder a burden I could never understand and you didn't have me  when you said you feel things very deeply and you called me a harlot and you called me a whore, at your fancy, on your terms, in you and in you and in you, while I pierced your conscience with a feather you say, while I summoned eyes on you you say, say you now what you may say -- I am no longer there.</p>
+
+            </div>
+        </article>
+      </div>
+      
+      <footer class="site-footer-main">
+        © <span id="current-year"></span> Saurabh Baral (bvrvl). All content licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC BY-SA 4.0</a>.
+      </footer>
+  </main>
+
+  <script>
+    const body=document.body,themeToggleButton=document.getElementById("theme-toggle-button");function applyTheme(e){body.classList.toggle("dark-mode","dark"===e),themeToggleButton&&(themeToggleButton.textContent="dark"===e?"Light Theme":"Dark Theme")}function renderProtectedEmails(){const e="saurabh",t="bvrvl.com",n=e+"@"+t,o=document.getElementById("author-email-link");o&&!o.href&&(o.href="mailto:"+n,o.textContent=n);const l=document.getElementById("about-email-link");l&&!l.href&&(l.href="mailto:"+n,l.textContent=n)}themeToggleButton&&themeToggleButton.addEventListener("click",()=>{let e=body.classList.contains("dark-mode")?"light":"dark";applyTheme(e),localStorage.setItem("theme",e)}),function(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(e||(t?"dark":"light")),document.getElementById("current-year").textContent=(new Date).getFullYear(),renderProtectedEmails()}();
+  </script>
+</body>
+</html>
